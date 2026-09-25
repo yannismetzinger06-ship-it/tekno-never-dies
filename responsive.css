@@ -169,21 +169,35 @@ main {
     padding: 20px 16px;
   }
 }
-/* Correctif : le bouton Rejoindre du menu reste à sa place sur téléphone */
+/* Correctif en-tête sur téléphone */
 @media (max-width: 700px) {
-  header nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 6px 14px;
-    width: 100%;
+  header.top {
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    height: auto;
   }
 
-  header nav a,
-  header .btn,
-  header button {
+  header.top nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 18px;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  header.top nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  header.top nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 15px;
+    padding: 6px 0;
     width: auto;
-    padding: 8px 12px;
   }
 }
