@@ -109,6 +109,8 @@ h2{font-family:var(--display);font-weight:400;text-transform:uppercase;line-heig
  
 .agenda-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:clamp(28px,4vw,52px)}
 .squiggle{width:clamp(130px,20vw,260px);aspect-ratio:620/255;background:url("../assets/img/decor/squiggle.webp") center/contain no-repeat;flex:none}
+.squiggle.is-3d{background:none}
+.squiggle canvas{display:block;width:100%;height:100%}
 .rows{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
 .rows li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) auto;gap:16px 32px;align-items:center;padding:1.3em 0;border-bottom:1px solid var(--line)}
 .rows .when{font-family:var(--display);font-size:clamp(1.05rem,2vw,1.5rem);text-transform:uppercase}
