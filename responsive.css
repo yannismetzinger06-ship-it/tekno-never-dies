@@ -1,0 +1,171 @@
+/* =========================================================
+   Tekno Never Dies — adaptation téléphone / ordi
+   À charger APRÈS style.css dans chaque page
+   ========================================================= */
+
+/* ---------- Base valable partout ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;          /* plus de défilement horizontal parasite */
+}
+
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  border: 0;
+}
+
+/* Les tableaux défilent dans leur propre zone au lieu d'élargir la page */
+table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Les longs mots / liens / e-mails ne débordent pas */
+p, li, a, h1, h2, h3, td {
+  overflow-wrap: anywhere;
+}
+
+/* Champs de formulaire (contact, recherche Évènements) */
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  max-width: 100%;
+}
+
+/* Contenu centré avec une largeur de lecture confortable sur ordi */
+main {
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* ---------- Tablettes et petits écrans ---------- */
+@media (max-width: 900px) {
+  /* Les colonnes côte à côte passent à la ligne */
+  main section,
+  main .grid,
+  main .cards,
+  main .row {
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------- Téléphones ---------- */
+@media (max-width: 700px) {
+  body {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  h1 { font-size: clamp(1.8rem, 8vw, 2.4rem); line-height: 1.15; }
+  h2 { font-size: clamp(1.4rem, 6vw, 1.8rem); line-height: 1.2; }
+  h3 { font-size: 1.2rem; }
+
+  main {
+    padding-inline: 16px;
+  }
+
+  /* En-tête : logo au-dessus, menu en dessous */
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    text-align: center;
+  }
+
+  header img {
+    max-height: 70px;
+    width: auto;
+  }
+
+  /* Menu : les liens passent à la ligne au lieu de sortir de l'écran */
+  header nav ul,
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 14px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  nav a {
+    display: inline-block;
+    padding: 8px 4px;          /* zone de clic assez grande pour le doigt */
+  }
+
+  /* Blocs en colonnes -> empilés */
+  .grid,
+  .cards,
+  .row,
+  .columns {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .grid > *,
+  .cards > *,
+  .row > *,
+  .columns > * {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Formulaires pleine largeur ; 16px évite le zoom auto sur iPhone */
+  input,
+  select,
+  textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  button,
+  input[type="submit"],
+  .btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  /* Page Évènements : recherche + filtre l'un sous l'autre */
+  .filters,
+  .search,
+  .recherche,
+  .filtre {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  /* Pied de page */
+  footer {
+    text-align: center;
+    padding: 20px 16px;
+  }
+}
