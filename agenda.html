@@ -14,6 +14,8 @@
     { "imports": { "three": "./vendor/three/three.module.min.js" } }
   </script>
   <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/squiggle3d.js"></script>
+  <script src="js/menu.js" defer></script>
   <script src="js/agenda.js" defer></script>
 </head>
 <body>
@@ -23,14 +25,25 @@
     <a href="index.html" aria-label="Tekno Never Dies, accueil">
       <span class="badge" role="img" aria-label="Logo Tekno Never Dies Sound System"></span>
     </a>
-    <nav aria-label="Navigation principale">
-  <a href="asso.html">L'asso</a>
-  <a href="agenda.html">Évènements</a>
-  <a href="faq.html">FAQ</a>
-  <a href="contact.html">Contact</a>
-  <a href="rejoindre.html">Rejoindre</a>
-</nav>
   </header>
+ 
+  <!-- ============ Menu : bouton + menu plein écran (voir js/menu.js) ============ -->
+  <button class="tnd-toggle" type="button" aria-expanded="false" aria-controls="tnd-menu">
+    <span class="tnd-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    <span class="tnd-toggle-label">Menu</span>
+  </button>
+  <nav class="tnd-menu" id="tnd-menu" aria-label="Navigation principale">
+    <span class="badge tnd-menu-badge" aria-hidden="true"></span>
+    <ul class="tnd-links">
+      <li style="--i:0"><a href="index.html">Accueil</a></li>
+      <li style="--i:1"><a href="asso.html">L'asso</a></li>
+      <li style="--i:2"><a href="agenda.html">Évènements</a></li>
+      <li style="--i:3"><a href="faq.html">FAQ</a></li>
+      <li style="--i:4"><a href="rejoindre.html">Rejoindre</a></li>
+      <li style="--i:5"><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="tnd-menu-foot">Tekno Never Dies, Lauterbourg<br><a href="mailto:tnd6tem@gmail.com">tnd6tem@gmail.com</a></p>
+  </nav>
  
    <main class="page-main">
     <section class="container block" id="evenements">
@@ -95,7 +108,7 @@
       <div class="events-grid">
   <article class="event-card is-past" data-price="paid">
     <div class="event-media">
-      <img src="assets/img/events/soiree1.webp" alt="Affiche de la soirée Center Drop">
+      <img src="assets/img/events/soiree1.webp" alt="Affiche de la soirée Ice Boiler v1">
     </div>
     <div class="event-body">
       <time datetime="2026-04-04">Sam. 4 avril 2026</time>
@@ -136,11 +149,5 @@
     </div>
   </footer>
 </body>
-<script type="importmap">
-{ "imports": {
-  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-} }
-</script>
-<script type="module" src="js/squiggle3d.js"></script>
 </html>
+ 
