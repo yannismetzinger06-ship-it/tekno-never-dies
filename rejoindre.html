@@ -1,11 +1,33 @@
 <!doctype html>
 <html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Rejoindre — Tekno Never Dies</title>
+  <meta name="description" content="Rejoindre Tekno Never Dies, association et sound system tekno : devenir membre ou bénévole." />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="preload" href="assets/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Adaptation téléphone / ordi (toujours après style.css) -->
+  <link rel="stylesheet" href="css/responsive.css" />
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three/three.module.min.js" } }
+  </script>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/squiggle3d.js"></script>
+  <script src="js/menu.js" defer></script>
+</head>
+<body>
+  <canvas id="stage" aria-hidden="true"></canvas>
+  <canvas id="spiral-stage" aria-hidden="true"></canvas>
+ 
   <header class="top">
     <a href="index.html" aria-label="Tekno Never Dies, accueil">
       <span class="badge" role="img" aria-label="Logo Tekno Never Dies Sound System"></span>
     </a>
   </header>
-
+ 
+  <!-- ============ Menu : bouton + menu plein écran (voir js/menu.js) ============ -->
   <button class="tnd-toggle" type="button" aria-expanded="false" aria-controls="tnd-menu">
     <span class="tnd-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
     <span class="tnd-toggle-label">Menu</span>
@@ -22,25 +44,9 @@
     </ul>
     <p class="tnd-menu-foot">Tekno Never Dies, Lauterbourg<br><a href="mailto:tnd6tem@gmail.com">tnd6tem@gmail.com</a></p>
   </nav>
-<body>
-  <canvas id="stage" aria-hidden="true"></canvas>
-  <canvas id="spiral-stage" aria-hidden="true"></canvas>
-
-  <header class="top">
-    <a href="index.html" aria-label="Tekno Never Dies, accueil">
-      <span class="badge" role="img" aria-label="Logo Tekno Never Dies Sound System"></span>
-    </a>
-    <nav aria-label="Navigation principale">
-      <a href="asso.html">L'asso</a>
-      <a href="agenda.html">Évènements</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-      <a href="rejoindre.html">Rejoindre</a>
-    </nav>
-  </header>
-
+ 
   <main class="page-main">
-
+ 
             <!-- ============ Appel DJ ============ -->
     <section class="container block block--flush-top">
       <div class="dj-cta">
@@ -48,6 +54,8 @@
         <div>
           <h2>T'es DJ ? T'as envie de mixer ?</h2>
           <p>Envoie-nous un message avec un extrait de ton set, et on en discute pour une prochaine soirée.</p>
+        </div>
+        <a class="btn btn-cyan" href="contact.html">Envoyer un message</a>
       </div>
     </section>
   
@@ -59,7 +67,7 @@
         <p>L'asso avance grâce à celles et ceux qui s'y mettent : montage, accueil, technique, com'. Pas besoin d'expérience, juste l'envie de donner un coup de main.</p>
       </div>
     </section>
-
+ 
     <!-- ============ Pourquoi rejoindre ============ -->
     <section class="container block block--flush-top">
       <div class="join-grid">
@@ -85,7 +93,7 @@
         </article>
       </div>
     </section>
-
+ 
     <!-- ============ Comment ça marche ============ -->
     <section class="container block block--flush-top">
       <div class="agenda-head">
@@ -111,20 +119,19 @@
         </li>
       </ol>
     </section>
-
+ 
     <!-- ============ Appel à l'action ============ -->
     <section class="container block--rejoindre" id="rejoindre">
       <div class="rejoindre">
         <h2>Une idée, un set, un coup de main ?</h2>
         <p>L'asso avance grâce à celles et ceux qui s'y mettent. Écris-nous et on se retrouve devant les enceintes.</p>
-        <!-- TODO : remplacer par la vraie adresse de contact -->
         <a class="btn btn-cyan" href="mailto:tnd6tem@gmail.com">Nous écrire</a>
         <div class="chain" aria-hidden="true"></div>
       </div>
     </section>
-
+ 
   </main>
-
+ 
   <footer>
     <div class="container foot">
       <div class="who">
@@ -137,11 +144,5 @@
     </div>
   </footer>
 </body>
-<script type="importmap">
-{ "imports": {
-  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-} }
-</script>
-<script type="module" src="js/squiggle3d.js"></script>
 </html>
+ 
