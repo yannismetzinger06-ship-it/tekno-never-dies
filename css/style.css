@@ -1,7 +1,7 @@
 /* =====================================================================
    Tekno Never Dies — feuille de style
    Sommaire : 1 Polices · 2 Charte (couleurs) · 3 Base · 4 Accueil
-              5 Bandeau · 6 Sections · 7 Étoiles 3D · 8 Responsive
+              5 Bandeau · 6 Sections · 7 Étoiles 3D · 8 Responsive · 9 Menu
    ===================================================================== */
  
 /* ---------- 1. Polices (hébergées ici : pas de requête vers Google) ---------- */
@@ -54,9 +54,6 @@ a{color:inherit}
 /* ---------- 4. Accueil ---------- */
 .top{position:absolute;inset:0 0 auto 0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:clamp(14px,2.4vw,28px) var(--pad)}
 .top .badge{width:clamp(48px,5vw,64px)}
-.top nav{display:flex;gap:clamp(14px,2.6vw,36px);flex-wrap:wrap}
-.top nav a{font-weight:700;text-decoration:none;font-size:.98rem;padding:6px 2px;border-bottom:2px solid transparent}
-.top nav a:hover{border-color:var(--pink)}
  
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:clamp(88px,12vh,120px) 0 clamp(40px,7vh,72px)}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);align-items:center;gap:clamp(28px,4vw,64px)}
@@ -144,12 +141,10 @@ footer{padding:clamp(40px,6vw,72px) 0 clamp(48px,7vw,88px)}
   .hero-grid,.asso-grid,.systeme{grid-template-columns:minmax(0,1fr)}
   .lockup{font-size:min(22vw,21svh)}
   .hero-side{max-width:34rem}
-  .top nav{gap:14px}
   .rows li{grid-template-columns:minmax(0,1fr) auto}
   .rows .what{grid-column:1/-1;order:3}
 }
 @media (max-width:520px){
-  .top nav a{font-size:.9rem}
   .agenda-head .squiggle{display:none}
 }
 @media (prefers-reduced-motion:reduce){.track{animation:none}}
@@ -276,11 +271,104 @@ footer{padding:clamp(40px,6vw,72px) 0 clamp(48px,7vw,88px)}
    change les valeurs ci-dessous (petit écran, taille fluide, grand écran). */
 .block:has(.dj-cta){padding-bottom:clamp(24px,4vw,48px)}
 .block:has(.dj-cta) + .block{padding-top:clamp(16px,3vw,40px)}
-/* ---------- Téléphone : l'en-tête pousse le contenu au lieu de passer dessus ---------- */
+/* ---------- Téléphone : le logo pousse le contenu au lieu de passer dessus ---------- */
 @media (max-width:700px){
-  .top{position:relative;flex-direction:column;align-items:flex-start;flex-wrap:nowrap;gap:10px}
-  .top nav{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:2px 22px}
-  .top nav a{font-size:.95rem;white-space:nowrap}
+  .top{position:relative}
   .hero{min-height:auto;padding-top:24px}
   .page-main{padding-top:24px}
 }
+ 
+/* =====================================================================
+   9. Menu : bouton flottant + menu plein écran (voir js/menu.js)
+   Couleurs et polices de la charte. Le bouton reste en haut à droite
+   même quand on descend dans la page.
+   ===================================================================== */
+.tnd-toggle{
+  position:fixed;z-index:1001;
+  top:calc(clamp(14px,2.4vw,28px) + clamp(48px,5vw,64px)/2 - 23px + env(safe-area-inset-top,0px));
+  right:var(--pad);
+  display:flex;align-items:center;gap:10px;
+  padding:10px 20px;border-radius:999px;cursor:pointer;
+  background:var(--navy);color:#fff;border:2px solid var(--pink);
+  font:700 1rem var(--text);
+  box-shadow:.18em .18em 0 var(--pink);
+  transition:background-color .2s,color .2s,box-shadow .2s,transform .2s;
+}
+.tnd-toggle:hover{transform:translate(-2px,-2px);box-shadow:.3em .3em 0 var(--pink)}
+.tnd-toggle[aria-expanded="true"]{background:var(--pink);color:var(--navy);box-shadow:none;transform:none}
+.tnd-toggle:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+ 
+/* Mini égaliseur : il bouge au survol et quand le menu est ouvert */
+.tnd-eq{display:inline-flex;align-items:flex-end;gap:3px;height:16px}
+.tnd-eq span{width:3px;height:45%;background:var(--cyan);border-radius:1px}
+.tnd-eq span:nth-child(2){height:90%;animation-delay:-.3s}
+.tnd-eq span:nth-child(3){height:65%;animation-delay:-.6s}
+.tnd-eq span:nth-child(4){height:30%;animation-delay:-.15s}
+.tnd-toggle[aria-expanded="true"] .tnd-eq span{background:var(--navy)}
+.tnd-toggle:hover .tnd-eq span,
+.tnd-toggle[aria-expanded="true"] .tnd-eq span,
+.tnd-links .tnd-eq span{animation:tnd-bounce .9s ease-in-out infinite alternate}
+@keyframes tnd-bounce{from{height:20%}to{height:100%}}
+ 
+/* Le menu plein écran */
+.tnd-menu{
+  position:fixed;inset:0;z-index:1000;
+  display:flex;flex-direction:column;justify-content:space-between;gap:40px;
+  overflow-y:auto;overscroll-behavior:contain;
+  padding:calc(clamp(96px,14vh,140px) + env(safe-area-inset-top,0px)) var(--pad) calc(32px + env(safe-area-inset-bottom,0px));
+  background:var(--navy);color:#fff;
+  visibility:hidden;opacity:0;
+  transition:opacity .25s,visibility 0s .25s;
+}
+.tnd-menu.is-open{visibility:visible;opacity:1;transition:opacity .25s}
+ 
+/* Logo blanc à la même place que celui de l'en-tête */
+.tnd-menu-badge{
+  position:absolute;
+  top:calc(clamp(14px,2.4vw,28px) + env(safe-area-inset-top,0px));left:var(--pad);
+  width:clamp(48px,5vw,64px);background-image:var(--badge-white);
+}
+ 
+.tnd-links{list-style:none;margin:0;padding:0}
+.tnd-links li{opacity:0;transform:translateY(24px);transition:opacity .35s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.tnd-menu.is-open .tnd-links li{opacity:1;transform:none;transition-delay:calc(var(--i) * 55ms + 80ms)}
+ 
+/* Les liens : lettres en contour, qui se remplissent en rose au survol */
+.tnd-links a{
+  display:inline-flex;align-items:center;gap:.3em;
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:clamp(2.2rem,min(10vw,10.5vh),6.2rem);line-height:1.02;letter-spacing:-.005em;
+  text-decoration:none;
+  color:transparent;-webkit-text-stroke:2px #fff;
+  transition:color .18s,-webkit-text-stroke-color .18s,transform .18s,text-shadow .18s;
+}
+.tnd-links a:hover,.tnd-links a:focus-visible{
+  color:var(--pink);-webkit-text-stroke-color:var(--pink);
+  text-shadow:.045em .045em 0 var(--violet);
+  transform:translateX(.1em);outline:none;
+}
+/* Page actuelle = le morceau "en cours de lecture" : lettres pleines + égaliseur */
+.tnd-links a[aria-current="page"]{color:#fff;-webkit-text-stroke-color:#fff;text-shadow:.045em .045em 0 var(--violet)}
+.tnd-links a[aria-current="page"]:hover{color:var(--pink);-webkit-text-stroke-color:var(--pink)}
+.tnd-links .tnd-eq{height:.5em;gap:.07em}
+.tnd-links .tnd-eq span{width:.08em;background:var(--cyan)}
+ 
+.tnd-menu-foot{margin:0;color:var(--lav);font-weight:600;line-height:1.6}
+.tnd-menu-foot a{color:#fff}
+.tnd-menu-foot a:hover{color:var(--pink)}
+.tnd-menu-foot a:focus-visible{outline-color:var(--cyan)}
+ 
+body.tnd-lock{overflow:hidden}
+.team-modal{z-index:1100} /* la fiche membre passe devant le bouton Menu */
+ 
+@media (max-width:520px){
+  .tnd-toggle{padding:8px 16px}
+  .tnd-links a{-webkit-text-stroke-width:1.5px}
+}
+@supports not (-webkit-text-stroke:1px){.tnd-links a{color:#fff}}
+@media (prefers-reduced-motion:reduce){
+  .tnd-eq span{animation:none!important}
+  .tnd-links li,.tnd-menu,.tnd-links a,.tnd-toggle{transition:none!important}
+  .tnd-links li{transform:none}
+}
+ 
