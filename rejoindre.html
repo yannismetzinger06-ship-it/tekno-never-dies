@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Rejoindre — Tekno Never Dies</title>
+  <meta name="description" content="Tekno Never Dies : association et sound system tekno." />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="preload" href="assets/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three/three.module.min.js" } }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <canvas id="stage" aria-hidden="true"></canvas>
+  <canvas id="spiral-stage" aria-hidden="true"></canvas>
+
+  <header class="top">
+    <a href="index.html" aria-label="Tekno Never Dies, accueil">
+      <span class="badge" role="img" aria-label="Logo Tekno Never Dies Sound System"></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <a href="asso.html">L'asso</a>
+      <a href="agenda.html">Évènements</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="rejoindre.html">Rejoindre</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+
+    <!-- ============ Intro ============ -->
+    <section class="container block">
+      <h1 class="page-title">Rejoindre l'asso</h1>
+      <div class="prose">
+        <p>L'asso avance grâce à celles et ceux qui s'y mettent : montage, accueil, technique, com'. Pas besoin d'expérience, juste l'envie de donner un coup de main.</p>
+      </div>
+    </section>
+
+    <!-- ============ Pourquoi rejoindre ============ -->
+    <section class="container block block--flush-top">
+      <div class="join-grid">
+        <article class="join-card">
+          <span class="join-icon" aria-hidden="true">🔊</span>
+          <h3>Apprendre le système</h3>
+          <p>Montage, réglages, technique son : mets les mains dans le matériel aux côtés de l'équipe.</p>
+        </article>
+        <article class="join-card">
+          <span class="join-icon" aria-hidden="true">🤝</span>
+          <h3>Une équipe soudée</h3>
+          <p>On organise ensemble, on décide ensemble. Chaque bénévole compte, quel que soit le temps donné.</p>
+        </article>
+        <article class="join-card">
+          <span class="join-icon" aria-hidden="true">🎛️</span>
+          <h3>Passer derrière les platines</h3>
+          <p>Envie de mixer ? Les membres actifs peuvent proposer un set pour une prochaine soirée.</p>
+        </article>
+        <article class="join-card">
+          <span class="join-icon" aria-hidden="true">📍</span>
+          <h3>Un ancrage local</h3>
+          <p>Basés à Lauterbourg, on soutient aussi d'autres projets et évènements de la région.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ Comment ça marche ============ -->
+    <section class="container block block--flush-top">
+      <div class="agenda-head">
+        <h2>Comment ça marche</h2>
+        <div class="squiggle" aria-hidden="true"></div>
+      </div>
+      <ol class="join-steps">
+        <li>
+          <span class="join-step-num">1</span>
+          <div><strong>Écris-nous</strong><span>Dis-nous ce qui t'intéresse : technique, accueil, com', DJ...</span></div>
+        </li>
+        <li>
+          <span class="join-step-num">2</span>
+          <div><strong>On échange</strong><span>Un membre de l'équipe te recontacte pour en discuter, sans engagement.</span></div>
+        </li>
+        <li>
+          <span class="join-step-num">3</span>
+          <div><strong>Tu viens tester</strong><span>Premier coup de main sur une soirée ou un montage, pour voir si ça te plaît.</span></div>
+        </li>
+        <li>
+          <span class="join-step-num">4</span>
+          <div><strong>Tu deviens membre</strong><span>Si l'aventure te plaît, tu rejoins l'asso pour de bon.</span></div>
+        </li>
+      </ol>
+    </section>
+
+        <!-- ============ Appel DJ ============ -->
+    <section class="container block block--flush-top">
+      <div class="dj-cta">
+        <span class="dj-icon" aria-hidden="true">🎧</span>
+        <div>
+          <h2>T'es DJ ? T'as envie de mixer ?</h2>
+          <p>Envoie-nous un message avec un extrait de ton set, et on en discute pour une prochaine soirée.</p>
+      </div>
+    </section>
+
+    <!-- ============ Appel à l'action ============ -->
+    <section class="container block--rejoindre" id="rejoindre">
+      <div class="rejoindre">
+        <h2>Une idée, un set, un coup de main ?</h2>
+        <p>L'asso avance grâce à celles et ceux qui s'y mettent. Écris-nous et on se retrouve devant les enceintes.</p>
+        <!-- TODO : remplacer par la vraie adresse de contact -->
+        <a class="btn btn-cyan" href="mailto:tnd6tem@gmail.com">Nous écrire</a>
+        <div class="chain" aria-hidden="true"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div class="who">
+        <span class="badge" role="img" aria-label="Logo Tekno Never Dies"></span>
+        <div><div class="tnd">TND6TEM</div><small>© 2026 Tekno Never Dies, association</small></div>
+      </div>
+      <nav aria-label="Pied de page">
+        <a href="asso.html">L'asso</a><a href="agenda.html">Évènements</a><a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

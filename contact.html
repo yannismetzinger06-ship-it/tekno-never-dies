@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Contact — Tekno Never Dies</title>
+  <meta name="description" content="Tekno Never Dies : association et sound system tekno." />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="preload" href="assets/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three/three.module.min.js" } }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <canvas id="stage" aria-hidden="true"></canvas>
+  <canvas id="spiral-stage" aria-hidden="true"></canvas>
+
+  <header class="top">
+    <a href="index.html" aria-label="Tekno Never Dies, accueil">
+      <span class="badge" role="img" aria-label="Logo Tekno Never Dies Sound System"></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <a href="asso.html">L'asso</a>
+      <a href="agenda.html">Évènements</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="rejoindre.html">Rejoindre</a>
+    </nav>
+  </header>
+
+    <main class="page-main">
+    <section class="container block" id="contact">
+      <h1 class="page-title">Contact</h1>
+      <div class="prose">
+        <p>Une question, une envie de louer du matériel, une soirée à organiser ensemble ? Écris-nous.</p>
+      </div>
+
+      <div class="contact-grid">
+        <form class="contact-form" action="https://formspree.io/f/VOTRE_ID" method="POST">
+          <label for="nom">Nom</label>
+          <input id="nom" name="nom" type="text" required autocomplete="name">
+
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+
+          <label for="tel">Téléphone (facultatif)</label>
+          <input id="tel" name="telephone" type="tel" autocomplete="tel">
+
+          <fieldset>
+            <legend>Services souhaités</legend>
+            <label class="check"><input type="checkbox" name="services" value="Livraison"> Rejoindre l'asso</label>
+            <label class="check"><input type="checkbox" name="services" value="Installation"> Bénévolat</label>
+            <label class="check"><input type="checkbox" name="services" value="Technicien"> Devenir partenaire</label>
+          </fieldset>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+
+          <button class="btn btn-solid" type="submit">Envoyer</button>
+        </form>
+
+        <aside class="contact-card">
+          <h2>Nous contacter directement</h2>
+          <p>✉️ <a href="mailto:tnd6tem@gmail.com">tnd6tem@gmail.com</a></p>
+          <p>📞 <a href="tel:+33781878223">+33781878223</a></p>
+          <p>📍 Lauterbourg, Grand Est</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div class="who">
+        <span class="badge" role="img" aria-label="Logo Tekno Never Dies"></span>
+        <div><div class="tnd">TND6TEM</div><small>© 2026 Tekno Never Dies, association</small></div>
+      </div>
+      <nav aria-label="Pied de page">
+        <a href="asso.html">L'asso</a><a href="agenda.html">Agenda</a><a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
