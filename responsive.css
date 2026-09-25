@@ -39,8 +39,8 @@ table {
 }
 
 /* Les longs mots / liens / e-mails ne débordent pas */
-p, li, a, h1, h2, h3, td {
-  overflow-wrap: anywhere;
+p, li, td {
+  overflow-wrap: break-word;
 }
 
 /* Champs de formulaire (contact, recherche Évènements) */
@@ -167,5 +167,23 @@ main {
   footer {
     text-align: center;
     padding: 20px 16px;
+  }
+}
+/* Correctif : le bouton Rejoindre du menu reste à sa place sur téléphone */
+@media (max-width: 700px) {
+  header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px 14px;
+    width: 100%;
+  }
+
+  header nav a,
+  header .btn,
+  header button {
+    width: auto;
+    padding: 8px 12px;
   }
 }
