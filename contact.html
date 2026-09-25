@@ -1,20 +1,27 @@
 <!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Contact — Tekno Never Dies</title>
-  <meta name="description" content="Contacter Tekno Never Dies, association et sound system tekno : questions, partenariats, organisation d'évènements." />
-  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-  <link rel="preload" href="assets/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- Adaptation téléphone / ordi (toujours après style.css) -->
-  <link rel="stylesheet" href="css/responsive.css" />
-  <script type="importmap">
-    { "imports": { "three": "./vendor/three/three.module.min.js" } }
-  </script>
-  <script type="module" src="js/main.js"></script>
-</head>
+  <header class="top">
+    <a href="index.html" aria-label="Tekno Never Dies, accueil">
+      <span class="badge" role="img" aria-label="Logo Tekno Never Dies Sound System"></span>
+    </a>
+  </header>
+
+  <button class="tnd-toggle" type="button" aria-expanded="false" aria-controls="tnd-menu">
+    <span class="tnd-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    <span class="tnd-toggle-label">Menu</span>
+  </button>
+  <nav class="tnd-menu" id="tnd-menu" aria-label="Navigation principale">
+    <span class="badge tnd-menu-badge" aria-hidden="true"></span>
+    <ul class="tnd-links">
+      <li style="--i:0"><a href="index.html">Accueil</a></li>
+      <li style="--i:1"><a href="asso.html">L'asso</a></li>
+      <li style="--i:2"><a href="agenda.html">Évènements</a></li>
+      <li style="--i:3"><a href="faq.html">FAQ</a></li>
+      <li style="--i:4"><a href="rejoindre.html">Rejoindre</a></li>
+      <li style="--i:5"><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="tnd-menu-foot">Tekno Never Dies, Lauterbourg<br><a href="mailto:tnd6tem@gmail.com">tnd6tem@gmail.com</a></p>
+  </nav>
 <body>
   <canvas id="stage" aria-hidden="true"></canvas>
   <canvas id="spiral-stage" aria-hidden="true"></canvas>
