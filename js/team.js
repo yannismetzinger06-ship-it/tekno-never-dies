@@ -76,14 +76,16 @@ if (modal) {
     modal.classList.remove("is-open");
   }
 
-  document.querySelectorAll('.team-track > li:not([aria-hidden="true"]) .team-card[data-member]')
-    .forEach(card => {
-      card.addEventListener("click", () => {
-        const key = card.dataset.member;
-        const src = card.querySelector("img").src;
-        openModal(key, src);
-      });
+  // Toutes les photos sont cliquables, y compris les copies qui servent
+  // à faire boucler le défilement (sinon, après un tour, plus rien ne marchait).
+  // Le membre est retrouvé grâce au nom de la photo : equipe/yannis.webp -> "yannis".
+  document.querySelectorAll('.team-track button.team-card').forEach(card => {
+    card.addEventListener("click", () => {
+      const src = card.querySelector("img").src;
+      const key = card.dataset.member || src.split("/").pop().replace(/\.[a-z0-9]+$/i, "");
+      openModal(key, src);
     });
+  });
 
   modal.querySelectorAll("[data-close]").forEach(el => el.addEventListener("click", closeModal));
   document.addEventListener("keydown", e => {
